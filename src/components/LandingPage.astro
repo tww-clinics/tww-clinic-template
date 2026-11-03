@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { getBrand } from '../lib/brand';
 
 interface Props {
   headline: string;
@@ -9,6 +10,8 @@ interface Props {
   title?: string;
   eyebrow?: string;
 }
+
+const brand = await getBrand();
 
 const clinics = await getCollection('clinic');
 const clinic = clinics[0].data;
@@ -25,7 +28,7 @@ const telUrl = 'tel:' + clinic.phone;
 
     <header class="lp-header">
       <div class="lp-header__inner">
-        <img src="/images/tww-logo-white.png" alt={clinic.name} height="28" />
+        <img src={brand.logo} alt={clinic.name} height="28" />
         <a href={telUrl} class="lp-header__phone">{clinic.phone}</a>
       </div>
     </header>
@@ -43,10 +46,9 @@ const telUrl = 'tel:' + clinic.phone;
 
     <div class="lp-trust">
       <div class="lp-trust__inner">
-        <div class="lp-trust__item"><span class="lp-check">✓</span>Advanced diagnostic testing</div>
-        <div class="lp-trust__item"><span class="lp-check">✓</span>Personalized Health Restoration Plan</div>
-        <div class="lp-trust__item"><span class="lp-check">✓</span>Root cause focus — not symptom management</div>
-        <div class="lp-trust__item"><span class="lp-check">✓</span>66+ clinic national network</div>
+        {brand.trustItems.map((item) => (
+          <div class="lp-trust__item"><span class="lp-check">✓</span>{item}</div>
+        ))}
       </div>
     </div>
 
@@ -55,21 +57,13 @@ const telUrl = 'tel:' + clinic.phone;
         <p class="lp-label">Your First Visit</p>
         <h2 class="lp-section-title">What to Expect</h2>
         <div class="lp-steps__grid">
-          <div class="lp-step">
-            <span class="lp-step__num">01</span>
-            <h3 class="lp-step__title">Health History Review</h3>
-            <p class="lp-step__body">We take time to understand your full story — not just your symptoms. Where you've been matters as much as where you are now.</p>
-          </div>
-          <div class="lp-step">
-            <span class="lp-step__num">02</span>
-            <h3 class="lp-step__title">Advanced Testing</h3>
-            <p class="lp-step__body">We run the diagnostics that uncover what conventional medicine misses — the real root causes of your health challenges.</p>
-          </div>
-          <div class="lp-step">
-            <span class="lp-step__num">03</span>
-            <h3 class="lp-step__title">Your Restoration Plan</h3>
-            <p class="lp-step__body">You leave with a clear personalized roadmap — not a script to mask symptoms, but a real path to total restoration.</p>
-          </div>
+          {brand.firstVisitSteps.map((step, i) => (
+            <div class="lp-step">
+              <span class="lp-step__num">0{i + 1}</span>
+              <h3 class="lp-step__title">{step.title}</h3>
+              <p class="lp-step__body">{step.body}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -91,7 +85,7 @@ const telUrl = 'tel:' + clinic.phone;
     <div class="lp-foot">
       <div class="lp-foot__inner">
         <span>{clinic.name} &nbsp;·&nbsp; {clinic.address.street}, {clinic.address.city}, {clinic.address.state} {clinic.address.zip}</span>
-        <span><a href="/">Main site</a> &nbsp;·&nbsp; Part of <a href="https://thewellnessway.com" target="_blank" rel="noopener noreferrer">The Wellness Way</a></span>
+        <span><a href="/">Main site</a> &nbsp;·&nbsp; Part of <a href={brand.url} target="_blank" rel="noopener noreferrer">{brand.name}</a></span>
       </div>
     </div>
 

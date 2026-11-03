@@ -1,6 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 
+import { getBrand } from '../lib/brand';
+const brand = await getBrand();
+
 const clinics = await getCollection('clinic');
 const clinic = clinics[0].data;
 
@@ -99,7 +102,7 @@ const scheduleUrl = clinic.scheduling.type === 'neo' && clinic.scheduling.neoUrl
   <div class="footer__bottom container">
     <p class="footer__legal">
       &copy; {new Date().getFullYear()} {clinic.name}. All rights reserved.
-      Part of <a href="https://thewellnessway.com" target="_blank" rel="noopener noreferrer">The Wellness Way</a> network.
+      Part of <a href={brand.url} target="_blank" rel="noopener noreferrer">{brand.name}</a> {brand.network.footerLine}
     </p>
   </div>
 </footer>

@@ -1,0 +1,55 @@
+{
+  "name": "The Wellness Way",
+  "url": "https://thewellnessway.com",
+  "logo": "/images/tww-logo-white.png",
+  "network": {
+    "label": "Part of a National Network",
+    "claim": "66+ clinics",
+    "trustItem": "66+ clinic national network",
+    "footerLine": "network."
+  },
+  "theme": {
+    "green": "#6DC135",
+    "greenDark": "#4a8a22",
+    "dark": "#1A1A1A",
+    "black": "#111111",
+    "offWhite": "#F7F5F0",
+    "fontDisplay": "'Bebas Neue', sans-serif",
+    "fontBody": "'DM Sans', sans-serif"
+  },
+  "pillarsHeading": "The Three Sources of Interference",
+  "pillars": [
+    {
+      "name": "Trauma",
+      "description": "Physical stressors — injuries, structural misalignments, and neurological interference that prevent your body from functioning at full capacity."
+    },
+    {
+      "name": "Toxins",
+      "description": "Chemical stressors — environmental toxins, poor nutrition, and substances that create inflammation and disrupt your body's natural healing processes."
+    },
+    {
+      "name": "Thoughts",
+      "description": "Emotional stressors — mental and emotional patterns that create physiological responses in the body, affecting hormones, immune function, and overall health."
+    }
+  ],
+  "trustItems": [
+    "Advanced diagnostic testing",
+    "Personalized Health Restoration Plan",
+    "Root cause focus — not symptom management",
+    "66+ clinic national network"
+  ],
+  "firstVisitSteps": [
+    {
+      "title": "Health History Review",
+      "body": "We take time to understand your full story — not just your symptoms. Where you've been matters as much as where you are now."
+    },
+    {
+      "title": "Advanced Testing",
+      "body": "We run the diagnostics that uncover what conventional medicine misses — the real root causes of your health challenges."
+    },
+    {
+      "title": "Your Restoration Plan",
+      "body": "You leave with a clear personalized roadmap — not a script to mask symptoms, but a real path to total restoration."
+    }
+  ]
+}

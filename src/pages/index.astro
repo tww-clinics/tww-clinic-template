@@ -4,7 +4,10 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import RichText from '../components/RichText.astro';
 import BioModal from '../components/BioModal.astro';
+import { getBrand } from '../lib/brand';
 import { getCollection } from 'astro:content';
+
+const brand = await getBrand();
 
 const clinics = await getCollection('clinic');
 const clinic = clinics[0].data;
@@ -34,7 +37,7 @@ const scheduleUrl = clinic.scheduling.type === 'neo' && clinic.scheduling.neoUrl
     <section class="hero">
       <div class="hero__bg" style={heroStyle}></div>
       <div class="container hero__content">
-        <p class="label hero__label">The Wellness Way — {clinic.address.city}, {clinic.address.state}</p>
+        <p class="label hero__label">{brand.name} — {clinic.address.city}, {clinic.address.state}</p>
         <h1 class="hero__headline">
           <span class="hero__headline-lead">{headlinePrefix}</span>
           <span class="hero__headline--green">{headlineCity}</span>
@@ -69,8 +72,8 @@ const scheduleUrl = clinic.scheduling.type === 'neo' && clinic.scheduling.neoUrl
         </div>
         <div class="trust-bar__divider"></div>
         <div class="trust-bar__item">
-          <strong>Part of a National Network</strong>
-          <span>The Wellness Way — 66+ clinics</span>
+          <strong>{brand.network.label}</strong>
+          <span>{brand.name} — {brand.network.claim}</span>
         </div>
       </div>
     </section>

@@ -5,7 +5,10 @@ import Footer from '../components/Footer.astro';
 import RichText from '../components/RichText.astro';
 import BioModal from '../components/BioModal.astro';
 import VideoEmbed from '../components/VideoEmbed.astro';
+import { getBrand } from '../lib/brand';
 import { getCollection } from 'astro:content';
+
+const brand = await getBrand();
 
 const clinics = await getCollection('clinic');
 const clinic = clinics[0].data;
@@ -65,21 +68,13 @@ const scheduleUrl = clinic.scheduling.type === 'neo' && clinic.scheduling.neoUrl
           <h2 class="display-md">The Three Sources of Interference</h2>
         </div>
         <div class="pillars__grid">
-          <div class="pillar reveal reveal-delay-1">
-            <div class="pillar__number">01</div>
-            <h3 class="pillar__name">Trauma</h3>
-            <p class="pillar__desc">Physical stressors — injuries, structural misalignments, and neurological interference that prevent your body from functioning at full capacity.</p>
-          </div>
-          <div class="pillar reveal reveal-delay-2">
-            <div class="pillar__number">02</div>
-            <h3 class="pillar__name">Toxins</h3>
-            <p class="pillar__desc">Chemical stressors — environmental toxins, poor nutrition, and substances that create inflammation and disrupt your body's natural healing processes.</p>
-          </div>
-          <div class="pillar reveal reveal-delay-3">
-            <div class="pillar__number">03</div>
-            <h3 class="pillar__name">Thoughts</h3>
-            <p class="pillar__desc">Emotional stressors — mental and emotional patterns that create physiological responses in the body, affecting hormones, immune function, and overall health.</p>
-          </div>
+          {brand.pillars.map((pillar, i) => (
+            <div class={`pillar reveal reveal-delay-${i + 1}`}>
+              <div class="pillar__number">0{i + 1}</div>
+              <h3 class="pillar__name">{pillar.name}</h3>
+              <p class="pillar__desc">{pillar.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
