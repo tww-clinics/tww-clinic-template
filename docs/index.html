@@ -116,7 +116,7 @@
     </div>
     <div class="step__body">
       <p>This copies the template into a new GitHub repo, creates a Netlify site, and deploys it. When Netlify asks for a repository name, use the suggested name above.</p>
-      <a class="btn" href="https://app.netlify.com/start/deploy?repository=https://github.com/jeff-cmyk/tww-clinic-template" target="_blank" rel="noopener">Deploy to Netlify</a>
+      <a class="btn" href="https://app.netlify.com/start/deploy?repository=https://github.com/tww-clinics/tww-clinic-template" target="_blank" rel="noopener">Deploy to Netlify</a>
       <div class="note"><strong>Give it a clinic-specific name.</strong> Every clinic needs its own repo — you can't reuse one.</div>
       <div class="note"><strong>It works like a staging site until you add the real domain.</strong> The site is reachable straight away on a temporary <code>netlify.app</code> address, but it is deliberately hidden from Google while it still has placeholder content. Adding the clinic's custom domain is what puts it into search results — no switch to flip.</div>
     </div>
@@ -129,7 +129,7 @@
     </div>
     <div class="step__body">
       <p>This is what lets clinic staff log in and edit. Go to <a href="https://decapbridge.com" target="_blank" rel="noopener">decapbridge.com</a> and add a site:</p>
-      <div class="field"><span class="k">GitHub repository</span><span class="v" id="f-repo">jeff-cmyk/tww-…</span><button class="copy" data-copy="f-repo">Copy</button></div>
+      <div class="field"><span class="k">GitHub repository</span><span class="v" id="f-repo">tww-clinics/tww-…</span><button class="copy" data-copy="f-repo">Copy</button></div>
       <div class="field"><span class="k">Decap login URL</span><span class="v">https://your-site.netlify.app/admin/</span><span></span></div>
       <div class="field"><span class="k">GitHub token</span><span class="v">The shared clinic token</span><span></span></div>
       <div class="note"><strong>Keep the trailing slash</strong> on the login URL, and use the repo's real Netlify address. If the clinic gets a custom domain later, come back and update this field or logins will break.</div>
@@ -215,7 +215,7 @@
 </main>
 
 <footer class="wrap">
-  <p>Template repo: <a href="https://github.com/jeff-cmyk/tww-clinic-template" target="_blank" rel="noopener">jeff-cmyk/tww-clinic-template</a> — the README has the technical detail behind each step.</p>
+  <p>Template repo: <a href="https://github.com/tww-clinics/tww-clinic-template" target="_blank" rel="noopener">tww-clinics/tww-clinic-template</a> — the README has the technical detail behind each step.</p>
 </footer>
 
 <script>
@@ -232,7 +232,7 @@
     var s = slug(clinic.value);
     var repo = s ? 'tww-' + s : 'tww-…';
     document.getElementById('reponame').textContent = repo;
-    document.getElementById('f-repo').textContent = 'jeff-cmyk/' + repo;
+    document.getElementById('f-repo').textContent = 'tww-clinics/' + repo;
     Array.prototype.forEach.call(document.querySelectorAll('.copy'), function (b) {
       var t = document.getElementById(b.dataset.copy);
       b.disabled = !t || t.textContent.indexOf('…') !== -1;

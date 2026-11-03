@@ -13,7 +13,7 @@ export const prerender = true;
  * each one. Both values are available at build time instead:
  *
  *   REPOSITORY_URL   set automatically by Netlify, e.g.
- *                    https://github.com/jeff-cmyk/tww-appleton
+ *                    https://github.com/tww-clinics/tww-appleton
  *   DECAP_SITE_ID    set once per site in Netlify's environment variables,
  *                    from the site you create at decapbridge.com
  *

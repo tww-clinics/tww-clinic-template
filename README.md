@@ -11,7 +11,7 @@ structured data Google reads.
 
 ## Launch a new clinic
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jeff-cmyk/tww-clinic-template)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/tww-clinics/tww-clinic-template)
 
 ### 1. Deploy
 
@@ -24,7 +24,7 @@ At [decapbridge.com](https://decapbridge.com), add a site:
 
 | Field | Value |
 | :---- | :---- |
-| GitHub repository | `jeff-cmyk/tww-appleton` — must be `owner/repo` |
+| GitHub repository | `tww-clinics/tww-appleton` — must be `owner/repo` |
 | Decap CMS login URL | `https://<your-site>/admin/` — keep the trailing slash |
 | GitHub token | A token with **Contents: Read and write** |
 
