@@ -59,6 +59,9 @@ let cached: Brand | null = null;
 export async function getBrand(): Promise<Brand> {
   if (cached) return cached;
 
+  // Set per site in Netlify. Once the brand site has a stable address this
+  // should become the default here, so launching a clinic needs no brand config
+  // at all and HQ is opt-out rather than opt-in.
   const url = (process.env.BRAND_URL ?? '').trim();
 
   if (!url) {

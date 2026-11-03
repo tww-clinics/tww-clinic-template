@@ -145,7 +145,11 @@
       <p>DecapBridge will show you URLs containing a long id, like <code>/sites/<strong>f53ffc7a-…</strong>/pkce</code>. Copy that id. Then in Netlify, on the new site, go to <em>Site configuration → Environment variables</em> and add:</p>
       <div class="field"><span class="k">Key</span><span class="v" id="f-key">DECAP_SITE_ID</span><button class="copy" data-copy="f-key">Copy</button></div>
       <div class="field"><span class="k">Value</span><span class="v">The id you just copied</span><span></span></div>
+      <p>And one more, so the clinic picks up franchise-wide branding:</p>
+      <div class="field"><span class="k">Key</span><span class="v" id="f-brand">BRAND_URL</span><button class="copy" data-copy="f-brand">Copy</button></div>
+      <div class="field"><span class="k">Value</span><span class="v">https://&lt;brand-site&gt;/brand.json</span><span></span></div>
       <p>Then <strong>redeploy</strong> — Deploys → Trigger deploy. Environment variables don't take effect until the next build.</p>
+      <div class="note"><strong>BRAND_URL is what connects the clinic to HQ.</strong> Without it the site still works, but it uses the branding bundled in its own repo and will not receive franchise-wide changes. Also add this clinic's build hook to <code>CLINIC_BUILD_HOOKS</code> on the brand site, so brand updates rebuild it automatically.</div>
       <div class="note"><strong>How to check it worked:</strong> open <code>your-site.netlify.app/admin/config.yml</code>. If the top says “THIS CMS IS NOT CONFIGURED”, the variable didn't take or you haven't redeployed yet.</div>
     </div>
   </section>

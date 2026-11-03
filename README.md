@@ -40,7 +40,13 @@ Copy the site id out of the URLs DecapBridge generates — the UUID in
 
 ```
 DECAP_SITE_ID = <site-id>
+BRAND_URL     = https://<brand-site>/brand.json
 ```
+
+`BRAND_URL` points the clinic at the franchise brand feed served by the
+[tww-brand](https://github.com/tww-clinics/tww-brand) repo. Without it the site
+falls back to the branding bundled in `src/brand/defaults.json` and will not
+receive HQ changes.
 
 Then redeploy. **No code changes are needed**: `/admin/config.yml` is generated
 at build time from this variable plus `REPOSITORY_URL`, which Netlify sets
